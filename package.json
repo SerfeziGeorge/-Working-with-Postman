@@ -1,0 +1,43 @@
+{
+  "name": "mainvariant",
+  "version": "1.0.0",
+  "description": "1.  npm init then npm i express\r 2.  create app.js (contains all the express config)\r 3.  install nodemon - in package.json, in script write \"start\": \"nodemon app.js\", run in the terminal: npm start, for production mode, run in the terminal: npm run start:prod",
+  "main": "app.js",
+  "scripts": {
+    "start": "set NODE_ENV=development&& nodemon server.js",
+    "start:prod": "set NODE_ENV=production&& nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^6.0.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.8",
+    "nodemon": "^2.0.20",
+    "slugify": "^1.6.5",
+    "stripe": "^10.11.0",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "ndb": "^1.1.5",
+    "prettier": "^2.7.1"
+  }
+}

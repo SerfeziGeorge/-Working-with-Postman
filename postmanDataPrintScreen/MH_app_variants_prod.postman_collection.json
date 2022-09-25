@@ -1,0 +1,1518 @@
+{
+	"info": {
+		"_postman_id": "f9dd32a1-f170-4d88-b54c-c79cfa24e967",
+		"name": "MH_app_variants_prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11658729"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "UpdateCurrentPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passwordCurrent\": \"password\",\r\n    \"password\": \"test1234\",\r\n    \"passwordConfirm\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/updateMyCurrentPassword",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"updateMyCurrentPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"test1234\",\r\n    \"passwordConfirm\": \"test1234\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/resetPassword/2038c856730c603961a36c5bfd9c357f4c723af56a17d66cc430427ee824fe20",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"resetPassword",
+								"2038c856730c603961a36c5bfd9c357f4c723af56a17d66cc430427ee824fe20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"emma@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/forgotPassword",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"email\": \"emma2@example.com\",\r\n \"password\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/login",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Oscar Robinson\",\r\n    \"email\": \"oscar@example.com\",\r\n    \"password\": \"test1234\",\r\n    \"passwordConfirm\": \"test1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/signup",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer hsajnmxoi",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}api/v1/users",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/632eddae0a5e7a87675b2ad9",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"632eddae0a5e7a87675b2ad9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/me",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCurrentUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Emma Brooklyn\"\r\n        \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/updateCurrentUser",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"updateCurrentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/users/deleteCurrentUser",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"deleteCurrentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User By Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/632eddae0a5e7a87675b2ad9",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"632eddae0a5e7a87675b2ad9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User By Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Emma Newton\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/users/632f0f4547b277d21f1754b1",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"632f0f4547b277d21f1754b1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories/63305c9213b287113a936384",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"63305c9213b287113a936384"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"T-shirts\",\r\n    \"imageCover\": \"Jersey-Black.webp\",\r\n    \"images\": [\"Jersey-Black.webp\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/categories/addCategory",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"imageCover\": \"ADEBAYO_SWING_CITY2_FRONT_1024x1024.webp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/categories/63305c9213b287113a93638",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"63305c9213b287113a93638"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories/63305c9213b287113a936384",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"63305c9213b287113a936384"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category/ Products",
+			"item": [
+				{
+					"name": "Get All Products in a Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories/60d9fb2bf6006227c03fe635/products",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"60d9fb2bf6006227c03fe635",
+								"products"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "60d9fb2bf6006227c03fe635",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get all products filtered by category. No authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products in a Category & Sorted by Price Descending",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories/608e69da39277c27289d3dc7/products?category=608e69da39277c27289d3dc7&sort=-price,ratingsAverage",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"608e69da39277c27289d3dc7",
+								"products"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "608e69da39277c27289d3dc7"
+								},
+								{
+									"key": "sort",
+									"value": "-price,ratingsAverage"
+								}
+							]
+						},
+						"description": "Get all products filtered by category and sorted by price descending as the first criteria and ratingsAverage as the second criteria. No authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Product of a Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/categories/60d9fa59f6006227c03fe633/products/60c97051cce6f00fc882a687",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"60d9fa59f6006227c03fe633",
+								"products",
+								"60c97051cce6f00fc882a687"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Product On  Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Nike Adebayo-White\",\r\n\"description\": \"Lorem Ipsum is simplyc dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.\",\r\n\"summary\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry\",\r\n\"imageCover\": \"Adebayo-White.webp\",\r\n\"images\": [\"Adebayo-White.webp\"],\r\n\"price\": 110\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/categories/63305c9213b287113a936384/products",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"63305c9213b287113a936384",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product On  Category Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"productTitle\": \"Nike Adebayo - White-M\",\r\n\"description\": \"Lorem Ipsum is simplyc dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.\",\r\n\"summary\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry\",\r\n\"imageCover\": \"Adebayo-White.webp\",\r\n\"images\": [\"Adebayo-White.webp\"],\r\n\"price\": 100,\r\n\"quantityInStock\": 10,\r\n\"sku\": \"Adebayo_White_M_00040\",\r\n\"size\": \"M\",\r\n\"colour\": \"White\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/categories/60d9fa59f6006227c03fe633/products/60c97051cce6f00fc882a687",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"categories",
+								"60d9fa59f6006227c03fe633",
+								"products",
+								"60c97051cce6f00fc882a687"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "XL",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "60d9fa59f6006227c03fe633",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f707694861c2f26c42c9",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f707694861c2f26c42c9"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "M",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add-product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Nike Adebayo-White\",\r\n\"description\": \"Lorem Ipsum is simplyc dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.\",\r\n\"summary\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry\",\r\n\"imageCover\": \"Adebayo-White.webp\",\r\n\"images\": [\"Adebayo-White.webp\"],\r\n\"price\": 110\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/addProduct",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nike Adebayo White\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f707694861c2f26c42c99",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f707694861c2f26c42c99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f707694861c2f26c42c9",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f707694861c2f26c42c9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products Stats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/product-stats",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"product-stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products/ Variants",
+			"item": [
+				{
+					"name": "Get All Variants of Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/variants",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"variants"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "60d9fb2bf6006227c03fe635",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get all products filtered by category. No authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Variants of Product Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/variants?product=632f14ef1601cfc4b695690a&color=Black&size=S",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"variants"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "632f14ef1601cfc4b695690a"
+								},
+								{
+									"key": "color",
+									"value": "Black",
+									"description": "Sort Variants by color\n"
+								},
+								{
+									"key": "sort",
+									"value": "-createdAt",
+									"description": "Sort Variants by most recently added",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "S",
+									"description": "Sort Variants by Size\n"
+								}
+							]
+						},
+						"description": "Get all products filtered by category. No authentication required."
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Variants of a Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/variants/632f58f5be3ce0b9e64f645f",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"variants",
+								"632f58f5be3ce0b9e64f645f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Variant On  Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"size\": \"S\",\r\n\"color\": \"Blue\",\r\n\"quantityInStock\": \"10\",\r\n\"sku\": \"Adebayo_S_Blue_00010\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/variants/addVariant",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"variants",
+								"addVariant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Variant On  Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"size\": \"M\",\r\n\"color\": \"Black\",\r\n\"quantityInStock\": \"9\",\r\n\"sku\": \"Adebayo_M_00009\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/variants/632f58f5be3ce0b9e64f645f",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"variants",
+								"632f58f5be3ce0b9e64f645f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product / Reviews",
+			"item": [
+				{
+					"name": "Get All Reviews of a Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/reviews",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Review of a Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690a/reviews/63301ddd6d7077afee0e26af",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690a",
+								"reviews",
+								"63301ddd6d7077afee0e26af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Review On Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\":3,\r\n    \"review\": \"This is not on point!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690/reviews",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Review By Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\":4,\r\n    \"review\": \"This is ok!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/products/632f14ef1601cfc4b695690/reviews/63302ac80b0e49025915c79f",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"products",
+								"632f14ef1601cfc4b695690",
+								"reviews",
+								"63302ac80b0e49025915c79f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "GetAllOrders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/orders",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/orders/6044f4d45ceb7028fcf33248",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"6044f4d45ceb7028fcf33248"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"paid\": true,\r\n\"delivered\": false,\r\n\"product\": \"632f14ef1601cfc4b695690a\",\r\n\"variant\": \"632f58f5be3ce0b9e64f645f\",\r\n\"user\": \"63301e3b6d7077afee0e26b1\",\r\n\"address\": \"Main Street\",\r\n\"quantity\":1,\r\n\"price\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/orders/createOrder",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"orders",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set(\"jwt\", pm.response.json().token);"
+				]
+			}
+		}
+	]
+}

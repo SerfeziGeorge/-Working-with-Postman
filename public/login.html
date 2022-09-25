@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header class="main__header">
+			<div class="container grid">
+				<div class="logo">
+					<img src="img/miami-heat-logo.svg" alt="miami-heat-logo" />
+				</div>
+
+				<nav class="main__nav">
+					<ul class="unstyle__list main__list">
+						<li class="main__item">
+							<a href="index.html" class="main__link">Home</a>
+						</li>
+						<li class="main__item">
+							<a href="about.html" class="main__link">About</a>
+						</li>
+						<li class="main__item">
+							<a href="roster.html" class="main__link">Roster</a>
+						</li>
+						<li class="main__item">
+							<a href="shop.html" class="main__link">Shop</a>
+						</li>
+						<li class="main__item">
+							<a href="login.html" class="main__link">Log In</a>
+						</li>
+						<li class="main__item">
+							<a href="signup.html" class="main__link">Sign Up</a>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="nav__toggle">
+					<div class="hamburger"></div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container hero">
+			<div class="login-form">
+				<h2 class="title__large">Log into your account</h2>
+				<form class="form form--login">
+					<div class="form__group">
+						<label class="form__label text__read" for="email"
+							>Email address</label
+						><input
+							class="form__input"
+							id="email"
+							type="email"
+							placeholder="you@example.com"
+							required="required"
+						/>
+					</div>
+					<div class="form__group">
+						<label class="form__label" for="password">Password</label
+						><input
+							class="form__input"
+							id="password"
+							type="password"
+							placeholder="••••••••"
+							required="required"
+							minlength="8"
+						/>
+					</div>
+					<div class="form__group">
+						<button class="button-login btn--primary">
+							<h2>Login</h2>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Footer
+  ====================== -->
+
+		<footer>
+			<div class="container container--footer">
+				<p class="title__footer">Take your MH experience to the next level</p>
+
+				<ul class="unstyle__list social__icons">
+					<li class="social__item">
+						<a href="" class="social__link"
+							><i class="fa fa-twitter-square" aria-hidden="true"></i
+						></a>
+					</li>
+					<li class="social__item">
+						<a href="" class="social__link"
+							><i class="fa fa-instagram" aria-hidden="true"></i
+						></a>
+					</li>
+					<li class="social__item">
+						<a href="" class="social__link"
+							><i class="fa fa-facebook-square" aria-hidden="true"></i
+						></a>
+					</li>
+					<li class="social__item">
+						<a href="" class="social__link"
+							><i class="fa fa-youtube-square" aria-hidden="true"></i
+						></a>
+					</li>
+				</ul>
+
+				<ul class="unstyle__list nav__footer">
+					<li class="nav__item">
+						<a href="index.html" class="nav__link">Home</a>
+					</li>
+					<li class="nav__item">
+						<a href="about.html" class="nav__link">About</a>
+					</li>
+					<li class="nav__item">
+						<a href="roster.html" class="nav__link">Roster</a>
+					</li>
+					<li class="nav__item">
+						<a href="shop.html" class="nav__link">Shop</a>
+					</li>
+					<li class="nav__item">
+						<a href="login.html" class="nav__link">Log In</a>
+					</li>
+					<li class="nav__item">
+						<a href="signup.html" class="nav__link">Sign Up</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="js/hamburger.js"></script>
+		<script src="js/card.js"></script>
+		<!-- Font Awesome
+		 -->
+		<script src="https://use.fontawesome.com/97974f9c24.js"></script>
+	</body>
+</html>
